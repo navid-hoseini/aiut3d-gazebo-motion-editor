@@ -87,6 +87,9 @@ void SenderToServer::LaunchMsgLoop()
                     bResetMonitor = false;
                     start = -1;
                 }
+	        stringstream ss;
+                ss <<"(agent (unum " << uNum << ") (team Left) (move -0.1875 0 0 0))";
+                msg += ss.str(); // This line is added to resolve beam issue when reset button is pressed.
             }            
             behavior->setMonMessage(msg);
             PutMonMessage(behavior->getMonMessage());
